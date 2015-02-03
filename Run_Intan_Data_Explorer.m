@@ -1,9 +1,9 @@
 %Run Intan Data Explorer
 %Helper script that import data and runs GUI
 
-choice=questdlg('Import Intan Data?','Yes','No');
+%choice=questdlg('Import Intan Data?','Yes','No');
 
-if strcmp(choice,'Yes')
+if 1%strcmp(choice,'Yes')
     clear
     read_Intan_RHD2000_file; %runs Intan Matlab import script
     %save('IntanData');

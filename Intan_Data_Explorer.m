@@ -284,15 +284,11 @@ if sig1>0 && plotA>0
         case 2 %psd
             params.Fs=Fs;
             try
-            [S,f]=mtspectrumc(x,params);
-            catch
-                %[S,f]=pwelch(x,window,noverlap,nfft,params.Fs);
-                [S,f]=pwelch(x,[],[],[],Fs,'EdgeColor','none');
-            end
+            %[S,f]=mtspectrumc(x,params);
+            [S,f]=pwelch(x,[],[],[],Fs);            
             g=semilogy(h,f,S);
-        case 3 %specto                        
-            %spectrogram(x,window,noverlap,nfft,Fs);            
-            [~,F,T,P]=spectrogram(x,[],[],[],Fs);
+        case 3 %specto                 
+            [~,F,T,P]=spectrogram(x,kaiser(64),32,[],Fs);           
             g=surf(h,T,F,10*log10(abs(P)),'EdgeColor','none');
             axis(h,'tight');
             view(h,2)
